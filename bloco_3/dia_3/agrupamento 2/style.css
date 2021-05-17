@@ -1,0 +1,58 @@
+html{
+    font-size: 20px;
+}
+
+div:hover{
+    border: 1px solid black
+}
+
+#primary-color{
+    color:  red;
+}
+
+#secundary-color{
+    color: deeppink;
+}
+
+#fill-color{
+    color: blue;
+}
+
+#dark-color{
+    color: darkblue;
+}
+
+#light-color{
+    color: greenyellow;
+}
+
+div:hover{
+    border:  solid 2px black
+}
+
+#div1{
+    background: rgb(245, 181, 181);
+}
+
+#div2{
+    background: rgb(255, 180, 232);
+}
+
+#div3{
+    display: flex;
+    align-items: center;
+    background: rgb(201, 199, 240);
+    height: 100px;
+}
+
+#div4{
+    background: rgb(121, 111, 255);
+}
+
+#div5{
+    background: rgb(225, 255, 227);
+}
+
+.italic{
+    font-style: italic;
+}
