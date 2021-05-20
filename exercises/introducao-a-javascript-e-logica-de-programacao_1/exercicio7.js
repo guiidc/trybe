@@ -10,3 +10,5 @@ if (nota < 50) nota = 'F';
 if (nota < 0 || nota > 100) nota = 'A nota digitada deve estar entre 0 e 100';
 
 console.log(nota);
+
+
