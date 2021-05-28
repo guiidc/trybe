@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.2</title>
+    <style>
+        div {
+            border-color: black;
+            border-style: solid;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .main-content {
+            background-color: yellow;
+        }
+
+        .main-content .center-content {
+            background-color: red;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .main-content .center-content p {
+            font-style: italic;
+        }
+
+        .main-content .left-content {
+            background-color: green;
+            width: 60%;
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .main-content .left-content .small-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 100%;
+        }
+
+        .main-content .right-content {
+            background-color: blue;
+            width: 60%;
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        .main-content .description {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //selecionando elementos
+        const body = document.querySelector('body');
+
+
+        //criando elementos
+
+        function createElements(elementStr, classStr) {
+            const element = document.createElement(elementStr);
+            if (classStr) {
+                element.setAttribute('class', classStr);
+            }
+            return element;
+        }
+
+        const h1 = createElements('h1', 'title');
+        h1.innerHTML = 'Exercício 5.2 - JavaScript DOM';
+        const div1 = createElements('div', 'main-content')
+        const div2 = createElements('div', 'center-content')
+        const p1 = createElements('p')
+        p1.innerText = 'Sou uma tag P criada com JavaScript'
+        const div3 = createElements('div', 'left-content');
+        const div4 = createElements('div', 'right-content');
+        const img1 = createElements('img', 'small-image');
+        img1.src = 'https://picsum.photos/200'
+        const ul = createElements('ul');
+        const h3first = createElements('h3', 'description');
+        const h3second = createElements('h3', 'description');
+        const h3third = createElements('h3', 'description');
+
+        let numbers = ['um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez', ]
+
+        for (let v of numbers) {
+            const li = document.createElement('li');
+            li.innerHTML = v;
+            ul.appendChild(li);
+        }
+
+        //inserindo elementos
+        body.appendChild(h1);
+        body.appendChild(div1);
+        div1.appendChild(div2, h3first);
+        div2.appendChild(p1);
+        div1.appendChild(div3);
+        div1.appendChild(div4);
+        div3.appendChild(img1);
+        div4.appendChild(ul);
+        div1.appendChild(h3first);
+        div1.appendChild(h3second);
+        div1.appendChild(h3third);
+
+        for (let v of div1.children) {
+            if (v.className === 'left-content') {
+                const itemToRemove = v;
+                div1.removeChild(itemToRemove);
+                break;
+            }
+        }
+
+        div4.style.marginRight = 'auto';
+        div2.style.background = 'green'
+
+        for (let c = 1; c <= 2; c += 1) {
+            ul.lastChild.remove();
+        }
+        
+    </script>
+</body>
+
+</html>
