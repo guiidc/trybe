@@ -17,12 +17,10 @@ createDaysOfTheWeek();
 
 const dezDaysList = [29, 30, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
 
-// selecting elements
 const ulDay = document.querySelector('#days');
 const divButtons = document.querySelector('.buttons-container');
 
 
-// creating functions
 function insertDays(array) {
   for (let v of array) {
     const monthDay = document.createElement('li');
@@ -45,14 +43,26 @@ function createButton(str) {
   divButtons.appendChild(btn);
   
 }
-// calling functions
+
+function fridayButton(str) { 
+  const btnFriday = document.createElement('button');
+  btnFriday.innerHTML = str;
+  btnFriday.setAttribute('id', 'btn-friday');
+  divButtons.appendChild(btnFriday);
+}
+
 insertDays(dezDaysList);
 createButton('Feriados');
+fridayButton('Sexta-feira')
 
 
-// Adding events
 const holidayBtn = document.querySelector('#btn-holiday');
 const holidays = document.querySelectorAll('.holiday');
+const btnFriday = document.querySelector('#btn-friday');
+const fridays = document.getElementsByClassName('friday');
+const weekDaysFridaysBkp = document.getElementsByClassName('friday');
+const liDays = document.querySelectorAll('.day')
+
 holidayBtn.addEventListener('click', (e) => {
   for (let v of holidays) {
     if (v.style.background !== 'rgb(144, 247, 247)') {
@@ -63,3 +73,22 @@ holidayBtn.addEventListener('click', (e) => {
   }
 })
 
+btnFriday.addEventListener('click', (e) => { 
+  for (let v of fridays) {
+    if (v.innerHTML !== 'sexta-feira') {
+      v.innerHTML = 'sexta-feira';
+    } else {
+      v.innerHTML = parseInt(v.previousElementSibling.innerHTML) + 1;
+    }
+  }
+});
+
+for (let v of liDays) {
+  v.addEventListener('mouseenter', (e) => {
+    v.style.fontSize = '30px';
+  })
+
+  v.addEventListener('mouseout', (e) => {
+    v.style.fontSize = '20px'
+  })
+}
