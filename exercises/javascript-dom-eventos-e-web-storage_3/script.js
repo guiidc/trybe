@@ -61,7 +61,8 @@ const holidays = document.querySelectorAll('.holiday');
 const btnFriday = document.querySelector('#btn-friday');
 const fridays = document.getElementsByClassName('friday');
 const weekDaysFridaysBkp = document.getElementsByClassName('friday');
-const liDays = document.querySelectorAll('.day')
+const liDays = document.querySelectorAll('.day');
+const taskDiv = document.querySelector('.my-tasks');
 
 holidayBtn.addEventListener('click', (e) => {
   for (let v of holidays) {
@@ -92,3 +93,19 @@ for (let v of liDays) {
     v.style.fontSize = '20px'
   })
 }
+
+function addTask(str) {
+  const task = document.createElement('span');
+  task.innerHTML = str;
+  taskDiv.appendChild(task)
+}
+
+addTask('estudar')
+
+function setTaskColor(colorStr) {
+  const task = document.createElement('div');
+  task.setAttribute('class', 'task');
+  task.style.background = colorStr;
+  taskDiv.appendChild(task);
+}
+setTaskColor('blue')
