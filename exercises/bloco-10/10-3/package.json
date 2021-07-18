@@ -1,0 +1,17 @@
+{
+  "name": "10-3",
+  "version": "1.0.0",
+  "main": "randomNumber.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "jest": "^27.0.6",
+    "node-fetch": "^2.6.1"
+  }
+}
